@@ -1,0 +1,99 @@
+<manifest>
+  <remote name="cix_sec" fetch="../../cix_security/" review="" />
+  <remote name="cix_csu" fetch="../../csu_pm/" review="" />
+  <remote name="cix_priv" fetch="../../cix_private/" review="" />
+  <remote name="cix_open" fetch="../../cix_opensource/" review="" />
+  <remote name="cix_prop" fetch="../../cix_proprietary/" review="" />
+  <remote name="cix_open" fetch="../../cix_opensource/" review="" />
+  <remote name="cix_priv" fetch="../../cix_private/" review="" />
+  <remote name="cix_open" fetch="../../cix_opensource/" review="" />
+  <remote name="cix" fetch="../.." review="" />
+  <remote name="cix_prop" fetch="../../cix_proprietary/" review="" />
+  <remote name="cix_priv" fetch="../../cix_private/" review="" />
+  <remote name="tools" fetch="../../tools/" review="" />
+  <remote name="cix_fdt" fetch="../../freedesktop_repo/" review="" />
+  <remote name="cix_mirror" fetch="../../github_mirror/" review="" />
+  <remote name="cix_open" fetch="../../cix_opensource/" review="" />
+  <remote name="linux_repo" fetch="../../linux_repo/" review="" />
+  <remote name="cix_android" fetch=".." review="" />
+  <include name="release/rc2/aosp-default.xml" />
+
+  <project path="bootable/recovery" name="platform/bootable/recovery" remote="cix_android" groups="cix" revision="022121f5e6733049a27bc2148197bc4ad0a43b82" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="5880e9e924fbae9e1b55ff8747537ebb64323d87" />
+  <project path="build-scripts" name="cix_build_scripts" remote="linux_repo" groups="cix" revision="058fea6099f1a42af4a0eed5e0d9f5ef1bcecfc2" upstream="874c4/c0e9c/cix_beta2_radxa_dev" base="">
+    <linkfile src="build-android.sh" dest="build-android.sh" />
+  </project>
+  <project path="build/make" name="platform/build" groups="cix" revision="6d700cc81fffaa41832874120be49923104326ce" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="eea82abc00f64127c80962f57adb9dbbb05733d4">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="platform/build/soong" groups="cix" revision="d9ed33e40992e191732340bb5e12cc55a4de51b4" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="8bf89894cce3b5387e548a325febf7029828875c">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project path="device/cix" name="device/cix" remote="cix_android" groups="cix" revision="9fd2ee920232958791a9884abedacbc6acc7ca81" upstream="874c4/c0e9c/cix_a14_k6.1_radxa_beta2_dev" base="" />
+  <project path="external/flatbuffers" name="platform/external/flatbuffers" groups="cix" revision="e71bd89025f4d6d81628b101237ba7232a3a4e53" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="4c75be8aedec93af71db6f1d07db91a3a658a464" />
+  <project path="external/libjpeg-turbo" name="platform/external/libjpeg-turbo" groups="cix" revision="b7f54147ed527952e94676aa9e14ecc7c0577a8c" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="fee698cac7673f275e9fe9a7def9456eb702ed37" />
+  <project path="external/minigbm" name="platform/external/minigbm" groups="cix" revision="3bcc1e4dbb435a39ce304d873bfa59b64e05dc14" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="5ab97c3f8412bd538d0f368c1868849003378cd4" />
+  <project path="external/selinux" name="platform/external/selinux" groups="cix" revision="bb2a3850f086d46646beda63b54991b580f7dfef" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="c13ae2c6572b0e295630f44d6727aa3a567b392d" />
+  <project path="external/skia" name="platform/external/skia" groups="cix" revision="e30febd17e6a12d36a1815a8aa2ec2e2d75f4c18" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="525697f8635f828c2cb5f7d2d037ef9dc1b3941a" />
+  <project path="frameworks/av" name="platform/frameworks/av" groups="cix" revision="5805388c6a14745016f7be5174032ec7722153ef" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="abc118d19406fdffb543dc416ac8a431a86b0a2a" />
+  <project path="frameworks/base" name="platform/frameworks/base" groups="cix" revision="6282c0c495074493efa136e7fe933045aeb5591a" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="4d553c25adcf35ceaee3368f4b44444cb7146798" />
+  <project path="frameworks/native" name="platform/frameworks/native" groups="cix" revision="8c0b61888809d287de8cb33fd1ed784a1db27849" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="8b1d65e89c6241d1aacfe65ae855f623cf9d4a2e" />
+  <project path="hardware/interfaces" name="platform/hardware/interfaces" groups="cix" revision="3bc717c858140375909eb04b9724a9de9fe0fec4" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="24305de455c49794b1e34e0938c2fa5bef1952ea" />
+  <project path="hardware/realtek/bt" name="bt/rtl_bt_hal" remote="cix_open" groups="cix" revision="eed832acccf4478b012e540f05dc2bb3d864917e" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="hardware/realtek/wlan" name="wlan/rtl_wlan_hal" remote="cix_open" groups="cix" revision="e0b9b1022fae972d52fe656f87a815d1888454a3" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" groups="cix" revision="6e13805ce561e9b484c645c6f38ddb0c83142f64" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="904d7fb130f0c2854b92d18bb2a1e615a4a609b5" />
+  <project path="packages/apps/Car/Settings" name="platform/packages/apps/Car/Settings" groups="cix" revision="c468979095f349efdbcae8e8fae442260f2291b5" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="d29744a806ac04d0ac82a26c10e67864be529244" />
+  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="cix" revision="cec16ee628006e0be061c879a428ba8968d30cc6" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="b5a31283fbf03748d51ccab878b4a50e575fee59" />
+  <project path="packages/apps/TV" name="platform/packages/apps/TV" groups="cix" revision="d50e19d1a536c0a789cb15375d87e0f581be01a8" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="c4da5e25c12ac847e26c0e9dced90a0607bc9e19" />
+  <project path="packages/modules/Bluetooth" name="platform/packages/modules/Bluetooth" groups="cix" revision="2c28868ac89324d46a82c9a059136c241ef088de" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="8786b78c09f9bbf76a924b0365f7f94dd910c817" />
+  <project path="packages/modules/Connectivity" name="platform/packages/modules/Connectivity" groups="cix" revision="0c0d5ee947d9b4762221384071d4cd6dfb6d9d75" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="c27109a87499b827426ea3d92adb5a1d3fb3afee" />
+  <project path="packages/modules/adb" name="platform/packages/modules/adb" groups="cix" revision="28968bd25fdc45b37596fa7fb10d0ce4c7ba492c" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="255b3c3df04b8297a29036d7ac1241f12bb2c6aa" />
+  <project path="packages/services/Car" name="platform/packages/services/Car" groups="cix" revision="911668a939a202674c848c986c688c176049aff5" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="ee2454187164b4cc8171f5b0b6e810f3dab13e8f" />
+  <project path="system/apex" name="platform/system/apex" groups="cix" revision="57451b6e0ff8d140cf730bce512789783e096526" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="62e364d816a2c8cc8c0ffee1f03c2c6eab96e623" />
+  <project path="system/bpf" name="platform/system/bpf" groups="cix" revision="39c06abf07d06d1f41f6d15ab6e913387a968a0c" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="4dabf6c939598a2606b8a53d22a45ecf56643152" />
+  <project path="system/core" name="platform/system/core" groups="cix" revision="ade7d0086957ee0fe5d2747666be8c4e9ace7808" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="bf780d787ebf4b42541aa74ca447abe2c8ed1ce0" />
+  <project path="system/hardware/interfaces" name="platform/system/hardware/interfaces" groups="cix" revision="0ee2244d933f812072b468056d6388ba5e4f946a" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="edfb92377e997db719e94e13848b417253736356" />
+  <project path="system/libhwbinder" name="platform/system/libhwbinder" groups="cix" revision="303703e26229764179db8384ae8e6765a85ba659" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="f2a1ea3202192ac2c0ac89d95f03567dccc6ca50" />
+  <project path="system/libvintf" name="platform/system/libvintf" groups="cix" revision="89d7f72bc48b8f6ae8840021d3c8bbf8d51ca396" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="6a88a0516ef6a87e66ecb975dfe9dad8d5451903" />
+  <project path="system/netd" name="platform/system/netd" groups="cix" revision="9a5616199f491d55bd2beefe21155aad2bbcc379" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="f9f6e76ad60e389a2b861ffb03f805d005c5595a" />
+  <project path="system/tools/bpt" name="platform/system/tools/bpt" groups="cix" revision="44ae8ce027e351228c1c4852c9232a96a2b8760d" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="e2c77aebf72d56beb50329e9ce873ea834e02164" />
+  <project path="system/vold" name="platform/system/vold" remote="cix_android" groups="cix" revision="b4069cc4b4af965e22e5131ddb65538e66a6b375" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="ce1a504272319cab146bcdf8beeb9a3f11022a19" />
+  <project path="tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf" name="toolchain/gcc" remote="cix_open" groups="cix" revision="31576561bfb7a51f980af5b1369228f3cb1a9e17" upstream="874c4/c0e9c/arm-10.2-2020.11-x86_64-aarch64-none-elf" base="">
+    <linkfile src="." dest="vendor/cix_opensource/uefi_release/tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf" />
+  </project>
+  <project path="tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu" name="toolchain/gcc" remote="cix_open" groups="cix" revision="f129ad95f63ad3b8cedf4f4cb32dd4c5e71dc323" upstream="874c4/c0e9c/arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu" base="" />
+  <project path="tools/gcc/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux" name="toolchain/gcc" remote="cix_open" groups="cix" revision="1a9e8cd79872bc67d74ef52a03f7f4c15d3a07d0" upstream="874c4/c0e9c/arm-none-eabi-10.3-2021.10-x86_64-linux" base="" />
+  <project path="vendor/cix_firmware" name="cix_firmware" remote="cix_prop" groups="cix" revision="058d923bcfb7f97c696e9c996181f3636a7ece19" upstream="874c4/c0e9c/cix_open_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/audio" name="audio" remote="cix_open" groups="cix" revision="ca3b85223b9b91444adffb567e518f16b5d6d592" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/camera_hal" name="camera_hal" remote="cix_open" groups="cix" revision="251ab06d3cc73d2de529e8ec513428424a2ed4c9" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/cix_hdcp2" name="cix_hdcp2" remote="cix_open" groups="cix" revision="dddf6fd8579e5e1605a9bbcc0d18970844a69ea8" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/gpu/gpu_kernel" name="gpu_kernel" remote="cix_open" groups="cix" revision="4bb389c9310bbf14c98555aae6cc09548226bb15" upstream="874c4/c0e9c/cix_beta2_radxa_dev" base="" />
+  <project path="vendor/cix_opensource/gpu/gralloc" name="gralloc" remote="cix_open" groups="cix" revision="a8fe1d9536f813bc60b0201a509fc0db9ff8589d" upstream="874c4/c0e9c/cix_a14_k6.1_radxa_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/iio_sensor" name="iio_sensor" remote="cix_open" groups="cix" revision="c07a966341ba7bff76cfa2e8a425111ed9cc36ac" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/isp/isp_driver" name="isp_driver" remote="cix_open" groups="cix" revision="f51871660c714f548bde645a3a4cfddb34356245" upstream="874c4/c0e9c/cix_beta2_radxa_dev" base="" />
+  <project path="vendor/cix_opensource/kernel" name="linux" remote="cix_open" groups="cix" revision="b2c7ab224e9a1cac7b10d2a345eeab75bea4ea7f" upstream="874c4/c0e9c/cix_a14_k6.1_radxa_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/npu/npu_driver" name="npu_driver" remote="cix_open" groups="cix" revision="f47570079348b5a1d789e37ebc004062bc7eb5a6" upstream="874c4/c0e9c/cix_beta2_radxa_dev" base="" />
+  <project path="vendor/cix_opensource/npu/npu_hal" name="npu_hal" remote="cix_open" groups="cix" revision="587971fb929ad4a2c4a3444947323b0bf20ae2a2" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/power_hal" name="power_hal" remote="cix_open" groups="cix" revision="cddecf06747db818e4360e6614afe8b7b8a88756" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/tee_sdk" name="tee_sdk" remote="cix_open" groups="cix" revision="952738f779b4a89e4fb01f1650749c0ccebc2651" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/thermal_hal" name="thermal_hal" remote="cix_open" groups="cix" revision="89e4149b8cf70ff91aaa80a48c87e5aba0c0e350" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/tv_input_hal" name="tv_input_hal" remote="cix_open" groups="cix" revision="4de3c2315aafcda34f9c014efe34dbef235bf01b" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/uefi/acpica" name="acpica" remote="cix_priv" groups="cix" revision="bd4b0d2541799072729366ae56cea1b9866700e4" upstream="874c4/c0e9c/tag_R03_31_22" base="">
+    <linkfile src="." dest="vendor/cix_opensource/uefi_release/tools/acpica" />
+  </project>
+  <project path="vendor/cix_opensource/uefi_release/edk2" name="release/edk2" remote="cix_open" groups="cix" revision="8cdc8d8179791f53e8df52729d6275b7abedb31f" upstream="874c4/c0e9c/cix_open_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/uefi_release/edk2-non-osi" name="release/edk2-non-osi" remote="cix_open" groups="cix" revision="a3ebf5c14709c97c08f89ffcf6236642d83f5826" upstream="874c4/c0e9c/cix_open_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/uefi_release/edk2-platforms" name="release/edk2-platforms" remote="cix_open" groups="cix" revision="f7d34b59df744760f5e655f086da1d0d26e6680b" upstream="874c4/c0e9c/cix_open_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/usb_hal" name="usb_hal" remote="cix_open" groups="cix" revision="1ac0ae16ce795149ddb531c2f18d3e5a7368165d" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/uvc_gadget" name="uvc_gadget" remote="cix_open" groups="cix" revision="e97e2265ba8992215fc5bc1b9bd779cd53564da0" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/v4l2_camera_hal" name="v4l2_camera_hal" remote="cix_open" groups="cix" revision="440228886e243d4cb8908ca2e5b446d636513e5d" upstream="874c4/c0e9c/cix_android14_kernel6.1_beta2_dev" base="" />
+  <project path="vendor/cix_opensource/vpu/vpu_driver" name="vpu_driver" remote="cix_open" groups="cix" revision="6580d7dd90bbb467b987b2b729d3033955ecff45" upstream="874c4/c0e9c/cix_vpu_dev" base="" />
+  <project path="vendor/cix_opensource/wlan/rtl_wlan_driver" name="wlan/rtl_wlan_driver" remote="cix_open" groups="cix" revision="a42dc87d4cd68033c329fe329be2961ee8e895d1" upstream="874c4/c0e9c/cix_beta2_radxa_dev" base="" />
+  <project path="vendor/cix_proprietary" name="cix_proprietary" remote="cix_prop" groups="cix" revision="81d587eecc614d0c51958e3729b9e45821331e1a" upstream="874c4/c0e9c/cix_a14_k6.1_radxa_beta2_dev" base="" />
+
+</manifest>
