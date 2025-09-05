@@ -1,0 +1,99 @@
+<manifest>
+  <remote name="cix_sec" fetch="./cix_security/" review="" />
+  <remote name="cix_csu" fetch="./csu_pm/" review="" />
+  <remote name="cix_priv" fetch="./cix_private/" review="" />
+  <remote name="cix_open" fetch="./cix_opensource/" review="" />
+  <remote name="cix_prop" fetch="./cix_proprietary/" review="" />
+  <remote name="cix_open" fetch="./cix_opensource/" review="" />
+  <remote name="cix_priv" fetch="./cix_private/" review="" />
+  <remote name="cix_open" fetch="./cix_opensource/" review="" />
+  <remote name="cix" fetch="./" review="" />
+  <remote name="cix_prop" fetch="./cix_proprietary/" review="" />
+  <remote name="cix_priv" fetch="./cix_private/" review="" />
+  <remote name="tools" fetch="./tools/" review="" />
+  <remote name="cix_fdt" fetch="./freedesktop_repo/" review="" />
+  <remote name="cix_mirror" fetch="./github_mirror/" review="" />
+  <remote name="cix_open" fetch="./cix_opensource/" review="" />
+  <remote name="linux_repo" fetch="./linux_repo/" review="" />
+  <remote name="cix_android" fetch="./" review="" />
+  <include name="aosp-radxa-default.xml" />
+
+  <project path="bootable/recovery" name="platform/bootable/recovery" remote="cix_android" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="5880e9e924fbae9e1b55ff8747537ebb64323d87" />
+  <project path="build-scripts" name="cix_build_scripts" remote="linux_repo" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="">
+    <linkfile src="build-android.sh" dest="build-android.sh" />
+  </project>
+  <project path="build/make" name="platform/build_make/build" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="eea82abc00f64127c80962f57adb9dbbb05733d4">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="platform/build_make/soong" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="8bf89894cce3b5387e548a325febf7029828875c">
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+  <project path="device/cix" name="device/cix" remote="cix_android" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="external/flatbuffers" name="platform/external/flatbuffers" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="4c75be8aedec93af71db6f1d07db91a3a658a464" />
+  <project path="external/libjpeg-turbo" name="platform/external/libjpeg-turbo" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="fee698cac7673f275e9fe9a7def9456eb702ed37" />
+  <project path="external/minigbm" name="platform/external/minigbm" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="5ab97c3f8412bd538d0f368c1868849003378cd4" />
+  <project path="external/selinux" name="platform/external/selinux" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="c13ae2c6572b0e295630f44d6727aa3a567b392d" />
+  <project path="external/skia" name="platform/external/skia" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="525697f8635f828c2cb5f7d2d037ef9dc1b3941a" />
+  <project path="frameworks/av" name="platform/frameworks/av" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="abc118d19406fdffb543dc416ac8a431a86b0a2a" />
+  <project path="frameworks/base" name="platform/frameworks/base" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="4d553c25adcf35ceaee3368f4b44444cb7146798" />
+  <project path="frameworks/native" name="platform/frameworks/native" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="8b1d65e89c6241d1aacfe65ae855f623cf9d4a2e" />
+  <project path="hardware/interfaces" name="platform/hardware/interfaces" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="24305de455c49794b1e34e0938c2fa5bef1952ea" />
+  <project path="hardware/realtek/bt" name="bt/rtl_bt_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="hardware/realtek/wlan" name="wlan/rtl_wlan_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="packages/apps/Camera2" name="platform/packages/apps/Camera2" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="904d7fb130f0c2854b92d18bb2a1e615a4a609b5" />
+  <project path="packages/apps/Car/Settings" name="platform/packages/apps/Car/Settings" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="d29744a806ac04d0ac82a26c10e67864be529244" />
+  <project path="packages/apps/Settings" name="platform/packages/apps/Settings" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="b5a31283fbf03748d51ccab878b4a50e575fee59" />
+  <project path="packages/apps/TV" name="platform/packages/apps/TV" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="c4da5e25c12ac847e26c0e9dced90a0607bc9e19" />
+  <project path="packages/modules/Bluetooth" name="platform/packages/modules/Bluetooth" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="8786b78c09f9bbf76a924b0365f7f94dd910c817" />
+  <project path="packages/modules/Connectivity" name="platform/packages/modules/Connectivity" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="c27109a87499b827426ea3d92adb5a1d3fb3afee" />
+  <project path="packages/modules/adb" name="platform/packages/modules/adb" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="255b3c3df04b8297a29036d7ac1241f12bb2c6aa" />
+  <project path="packages/services/Car" name="platform/packages/services/Car" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="ee2454187164b4cc8171f5b0b6e810f3dab13e8f" />
+  <project path="system/apex" name="platform/system/apex" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="62e364d816a2c8cc8c0ffee1f03c2c6eab96e623" />
+  <project path="system/bpf" name="platform/system/bpf" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="4dabf6c939598a2606b8a53d22a45ecf56643152" />
+  <project path="system/core" name="platform/system/core" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="bf780d787ebf4b42541aa74ca447abe2c8ed1ce0" />
+  <project path="system/hardware/interfaces" name="platform/system/hardware/interfaces" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="edfb92377e997db719e94e13848b417253736356" />
+  <project path="system/libhwbinder" name="platform/system/libhwbinder" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="f2a1ea3202192ac2c0ac89d95f03567dccc6ca50" />
+  <project path="system/libvintf" name="platform/system/libvintf" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="6a88a0516ef6a87e66ecb975dfe9dad8d5451903" />
+  <project path="system/netd" name="platform/system/netd" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="f9f6e76ad60e389a2b861ffb03f805d005c5595a" />
+  <project path="system/tools/bpt" name="platform/system/tools/bpt" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="e2c77aebf72d56beb50329e9ce873ea834e02164" />
+  <project path="system/vold" name="platform/system/vold" remote="cix_android" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="ce1a504272319cab146bcdf8beeb9a3f11022a19" />
+  <project path="tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf" name="toolchain/gcc" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="">
+    <linkfile src="." dest="vendor/cix_opensource/uefi_release/tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-elf" />
+  </project>
+  <project path="tools/gcc/gcc-arm-10.2-2020.11-x86_64-aarch64-none-linux-gnu" name="toolchain/gcc" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="tools/gcc/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux" name="toolchain/gcc" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_firmware" name="cix_firmware" remote="cix_prop" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/audio" name="audio" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/camera_hal" name="camera_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/cix_hdcp2" name="cix_hdcp2" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/gpu/gpu_kernel" name="gpu_kernel" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/gpu/gralloc" name="gralloc" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/iio_sensor" name="iio_sensor" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/isp/isp_driver" name="isp_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/kernel" name="linux" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/npu/npu_driver" name="npu_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/npu/npu_hal" name="npu_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/power_hal" name="power_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/tee_sdk" name="tee_sdk" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/thermal_hal" name="thermal_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/tv_input_hal" name="tv_input_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/uefi/acpica" name="acpica" remote="cix_priv" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="">
+    <linkfile src="." dest="vendor/cix_opensource/uefi_release/tools/acpica" />
+  </project>
+  <project path="vendor/cix_opensource/uefi_release/edk2" name="release/edk2" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/uefi_release/edk2-non-osi" name="release/edk2-non-osi" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/uefi_release/edk2-platforms" name="release/edk2-platforms" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/usb_hal" name="usb_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/uvc_gadget" name="uvc_gadget" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/v4l2_camera_hal" name="v4l2_camera_hal" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/vpu/vpu_driver" name="vpu_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_opensource/wlan/rtl_wlan_driver" name="wlan/rtl_wlan_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+  <project path="vendor/cix_proprietary" name="cix_proprietary" remote="cix_prop" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
+
+</manifest>
