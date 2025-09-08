@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote  name="aosp"
-           fetch="./" />
+           fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP"
+           review="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP" />
   <default revision="refs/tags/android-14.0.0_r54"
            remote="aosp"
            sync-j="4" />
