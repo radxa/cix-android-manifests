@@ -11,9 +11,13 @@
   <remote name="linux_repo" fetch="." review="https://gitlab.com/cix-android14"/>
   <remote name="cix_android" fetch="./" review="https://gitlab.com/cix-android14"/>
   <include name="aosp-default.xml" />
+  <!-- <include name="aosp-radxa-default.xml" />
   <remove-project name="device/google/felix"/>
   <remove-project name="platform/tools/tradefederations/contrib"/>
   <remove-project name="platform/tools/tradefederations/prebuilts"/>
+  <project path="device/google/felix" name="device/google/felix" remote="cix_android" groups="device,felix" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
+  <project path="tools/tradefederation/contrib" name="platform/tools/tradefederations/contrib" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
+  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederations/prebuilts" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6" clone-depth="1" /> -->
 
   <project path="bootable/recovery" name="platform/bootable/recovery" remote="cix_android" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="5880e9e924fbae9e1b55ff8747537ebb64323d87" />
   <project path="build-scripts" name="cix_build_scripts" remote="linux_repo" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="">
@@ -92,8 +96,4 @@
   <project path="vendor/cix_opensource/vpu/vpu_driver" name="vpu_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
   <project path="vendor/cix_opensource/wlan/rtl_wlan_driver" name="wlan/rtl_wlan_driver" remote="cix_open" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
   <project path="vendor/cix_proprietary" name="cix_proprietary" remote="cix_prop" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="" />
-  <project path="device/google/felix" name="device/google/felix" remote="cix_android" groups="device,felix" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
-  <project path="tools/tradefederation/contrib" name="platform/tools/tradefederations/contrib" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
-  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederations/prebuilts" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6" clone-depth="1" />
-
 </manifest>
