@@ -8,18 +8,18 @@
            sync-j="4" />
   <superproject name="platform/superproject" remote="aosp" revision="android-14.0.0_r54"/>
   <contactinfo bugurl="go/repo-bug" />
-  <project path="build/orchestrator" name="platform/build/orchestrator" groups="pdk" />
-  <project path="build/bazel" name="platform/build/bazel" groups="pdk" >
+  <project path="build/orchestrator" name="platform/build/orchestrator" groups="pdk" clone-depth="1" />
+  <project path="build/bazel" name="platform/build/bazel" groups="pdk" clone-depth="1" >
     <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
     <linkfile src="bazel.BUILD" dest="BUILD" />
   </project>
-  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="pdk" />
-  <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
-  <project path="build/pesto" name="platform/build/pesto" groups="pdk" />
-  <project path="build/release" name="platform/build/release" groups="pdk,tradefed" />
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="pdk" clone-depth="1" />
+  <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" clone-depth="1" />
+  <project path="build/pesto" name="platform/build/pesto" groups="pdk" clone-depth="1" />
+  <project path="build/release" name="platform/build/release" groups="pdk,tradefed" clone-depth="1" />
   <project path="art" name="platform/art" groups="pdk" />
-  <project path="bionic" name="platform/bionic" groups="pdk" />
-  <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" />
+  <project path="bionic" name="platform/bionic" groups="pdk" clone-depth="1" />
+  <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" clone-depth="1"/>
   <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
   <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
   <project path="developers/build" name="platform/developers/build" groups="developers,pdk" />
@@ -38,8 +38,8 @@
   <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" groups="pdk" />
   <project path="device/generic/mini-emulator-arm64" name="device/generic/mini-emulator-arm64" groups="pdk" />
   <project path="device/generic/mini-emulator-armv7-a-neon" name="device/generic/mini-emulator-armv7-a-neon" groups="pdk" />
-  <project path="device/generic/mini-emulator-x86" name="device/generic/mini-emulator-x86" groups="pdk" />
-  <project path="device/generic/mini-emulator-x86_64" name="device/generic/mini-emulator-x86_64" groups="pdk" />
+  <project path="device/generic/mini-emulator-x86" name="device/generic/mini-emulator-x86" groups="pdk" clone-depth="1" />
+  <project path="device/generic/mini-emulator-x86_64" name="device/generic/mini-emulator-x86_64" groups="pdk" clone-depth="1" />
   <project path="device/generic/opengl-transport" name="device/generic/opengl-transport" groups="pdk" />
   <project path="device/generic/trusty" name="device/generic/trusty" groups="pdk" />
   <project path="device/generic/uml" name="device/generic/uml" groups="device,pdk" />
