@@ -1,6 +1,15 @@
+# CIX Android 14 for Radxa Orion Series — Build & Flash Guide
+
+This guide provides step-by-step instructions for setting up a build environment, downloading the source code, building, and flashing Android 14 on the Radxa O6.
+
+
 ## Build environment setup
 
-Recommend build host is Ubuntu 22.04 64bit, for other hosts, refer official Android documents [Establishing a Build Environment](https://source.android.com/setup/build/initializing).
+Recommend Ubuntu 22.04 64-bit as the build host. For other systems, refer to the official Android docs: [Establishing a Build Environment](https://source.android.com/setup/build/initializing).
+
+### System Requirements
+- **Disk Space:** At least 400 GB of free space for source code checkout and build.
+- **RAM:** At least 32 GB of RAM is strongly recommended for a smooth build experience.
 
 
 ```shell
@@ -9,11 +18,12 @@ $ wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
 $ chmod +x ~/bin/repo
 ```
 
-Android's source code primarily consists of Java, C++, and XML files. To compile the source code, you'll need to install OpenJDK 8, GNU C and C++ compilers, XML parsing libraries, ImageMagick, and several other related packages.
+Android 14 requires **OpenJDK 17**. Install it and other necessary packages using the commands below.
 
 
 ```shell
 $ sudo apt-get -y update
+$ sudo apt-get -y install openjdk-17-jdk
 $ sudo apt-get -y install lsb-release autoconf autopoint bc \
     bison build-essential cpio curl device-tree-compiler \
     dosfstools doxygen fdisk flex gdisk gettext-base git \
@@ -51,14 +61,15 @@ $ repo forall -c 'git lfs pull'
 ```
 It might take quite a bit of time to fetch the entire AOSP source code!
 
-In China:
+### Download source code in China
+
 Download Repo
 ```shell
 $ curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo -o repo
 $ export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
 ```
 
-AOSP download can be changed to Tsinghua University source.
+You can switch AOSP downloads to the Tsinghua University mirror for faster sync:
 ```bash
 $ cd .repo/manifests
 $ git diff cix_radxa_o6_release.xml
@@ -100,7 +111,7 @@ $ lunch sky1_orion_o6-ap2a-userdebug
 $ ./build-android.sh
 ```
 It takes a long time, take a break and wait...
-The generated image is in out/target/product/sky1_orion_o6/images.
+The generated images are in `out/target/product/sky1_orion_o6/images`.
 ```bash
 images/
 ├── android_flush_images.bat
@@ -128,7 +139,11 @@ Download:
 https://developer.android.google.cn/tools/releases/platform-tools
 ```
 
-#### Need to install the BIOS first, you can refer to the [radxa document](https://docs.radxa.com/en/orion/o6/bios/install-bios).need to use the compiled "cix_flash_all.bin"
+> **Note for Windows Users:** You may need to install the [Google USB Driver](https://developer.android.com/studio/run/win-usb) for your device to be recognized in fastboot mode.
+
+#### Install BIOS first
+Refer to the Radxa documentation: https://docs.radxa.com/en/orion/o6/bios/install-bios
+Use the compiled file: "cix_flash_all.bin".
 
 ### Fastboot flash bootloader
 
@@ -140,7 +155,7 @@ $ fastboot flash bootloader cix_flash_all_rsa_pr.bin
 ```
 
 ### Fastboot flash Android image
-Enter the images directory and execute the script android_flush_image.sh
+Enter the `images` directory and execute the script `android_flush_images.sh`:
 
 ```shell
 ./android_flush_images.sh
