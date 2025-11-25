@@ -1,15 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote  name="aosp"
-           fetch="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP"
-           review="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP" />
-  <default revision="refs/tags/android-14.0.0_r54"
-           remote="aosp"
-           sync-j="4" />
-  <superproject name="platform/superproject" remote="aosp" revision="android-14.0.0_r54"/>
+  <remote name="aosp" fetch=".." review="https://mirrors.tuna.tsinghua.edu.cn/git/AOSP" />
+  <default revision="refs/tags/android-14.0.0_r54" remote="aosp" sync-j="4" sync-c="true" sync-tags="false" />
+  <superproject name="platform/superproject" remote="aosp" revision="android-14.0.0_r54" />
   <contactinfo bugurl="go/repo-bug" />
   <project path="build/orchestrator" name="platform/build/orchestrator" groups="pdk" />
-  <project path="build/bazel" name="platform/build/bazel" groups="pdk" >
+  <project path="build/bazel" name="platform/build/bazel" groups="pdk">
     <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
     <linkfile src="bazel.BUILD" dest="BUILD" />
   </project>
@@ -93,7 +88,7 @@
   <project path="device/google/sunfish-sepolicy" name="device/google/sunfish-sepolicy" groups="device,sunfish" />
   <project path="device/google/cuttlefish" name="device/google/cuttlefish" groups="device,pdk" />
   <project path="device/google/cuttlefish_prebuilts" name="device/google/cuttlefish_prebuilts" groups="device,pdk" clone-depth="1" />
-  <project path="device/google/cuttlefish_vmm" name="device/google/cuttlefish_vmm" groups="device,pdk"  />
+  <project path="device/google/cuttlefish_vmm" name="device/google/cuttlefish_vmm" groups="device,pdk" />
   <project path="device/google/trout" name="device/google/trout" groups="device,trout,gull,pdk" />
   <project path="device/google/vrservices" name="device/google/vrservices" groups="pdk" />
   <project path="device/google/zuma" name="device/google/zuma" groups="device,ripcurrent" />
@@ -961,17 +956,17 @@
   <project path="hardware/qcom/keymaster" name="platform/hardware/qcom/keymaster" groups="qcom,qcom_keymaster,pdk-qcom" />
   <project path="hardware/qcom/media" name="platform/hardware/qcom/media" groups="qcom,pdk-qcom" />
   <project path="hardware/qcom/power" name="platform/hardware/qcom/power" groups="qcom,pdk-qcom" />
-  <project path="hardware/qcom/sm7150/gps" name="platform/hardware/qcom/sm7150/gps" groups="qcom_sm7150" >
+  <project path="hardware/qcom/sm7150/gps" name="platform/hardware/qcom/sm7150/gps" groups="qcom_sm7150">
     <linkfile dest="hardware/qcom/sm7150/Android.mk" src="os_pickup.mk" />
     <linkfile dest="hardware/qcom/sm7150/Android.bp" src="os_pickup.bp" />
   </project>
   <project path="hardware/qcom/sm7250/display" name="platform/hardware/qcom/sm7250/display" groups="qcom_sm7250" />
-  <project path="hardware/qcom/sm7250/gps" name="platform/hardware/qcom/sm7250/gps" groups="qcom_sm7250" >
+  <project path="hardware/qcom/sm7250/gps" name="platform/hardware/qcom/sm7250/gps" groups="qcom_sm7250">
     <linkfile dest="hardware/qcom/sm7250/Android.mk" src="os_pickup.mk" />
     <linkfile dest="hardware/qcom/sm7250/Android.bp" src="os_pickup.bp" />
   </project>
   <project path="hardware/qcom/sm7250/media" name="platform/hardware/qcom/sm7250/media" groups="qcom_sm7250" />
-  <project path="hardware/qcom/sm8150/data/ipacfg-mgr" name="platform/hardware/qcom/sm8150/data/ipacfg-mgr" groups="qcom_sm8150" >
+  <project path="hardware/qcom/sm8150/data/ipacfg-mgr" name="platform/hardware/qcom/sm8150/data/ipacfg-mgr" groups="qcom_sm8150">
     <linkfile dest="hardware/qcom/sm8150/Android.mk" src="os_pickup.mk" />
     <linkfile dest="hardware/qcom/sm8150/Android.bp" src="os_pickup.bp" />
   </project>
@@ -980,7 +975,7 @@
   <project path="hardware/qcom/sm8150/media" name="platform/hardware/qcom/sm8150/media" groups="qcom_sm8150" />
   <project path="hardware/qcom/sm8150/thermal" name="platform/hardware/qcom/sm8150/thermal" groups="qcom_sm8150" />
   <project path="hardware/qcom/sm8150/vr" name="platform/hardware/qcom/sm8150/vr" groups="qcom_sm8150" />
-  <project path="hardware/qcom/sm8150p/gps" name="platform/hardware/qcom/sm8150p/gps" groups="qcom_sm8150p" >
+  <project path="hardware/qcom/sm8150p/gps" name="platform/hardware/qcom/sm8150p/gps" groups="qcom_sm8150p">
     <linkfile dest="hardware/qcom/sm8150p/Android.mk" src="os_pickup.mk" />
     <linkfile dest="hardware/qcom/sm8150p/Android.bp" src="os_pickup.bp" />
   </project>
@@ -1053,7 +1048,6 @@
   <project path="packages/apps/DocumentsUI" name="platform/packages/apps/DocumentsUI" groups="pdk-cw-fs,pdk-fs" />
   <project path="packages/apps/EmergencyInfo" name="platform/packages/apps/EmergencyInfo" groups="pdk-fs" />
   <project path="packages/apps/Gallery" name="platform/packages/apps/Gallery" groups="pdk-fs" />
-  <project path="packages/apps/Gallery2" name="platform/packages/apps/Gallery2" groups="pdk-fs" />
   <project path="packages/apps/HTMLViewer" name="platform/packages/apps/HTMLViewer" groups="pdk-fs" />
   <project path="packages/apps/ImsServiceEntitlement" name="platform/packages/apps/ImsServiceEntitlement" groups="pdk-fs" />
   <project path="packages/apps/KeyChain" name="platform/packages/apps/KeyChain" groups="pdk-fs" />
@@ -1291,7 +1285,7 @@
   <project path="test/vts-testcase/security" name="platform/test/vts-testcase/security" groups="vts,projectarch,pdk" />
   <project path="test/vts-testcase/vndk" name="platform/test/vts-testcase/vndk" groups="vts,pdk" />
   <project path="test/catbox" name="platform/test/catbox" />
-  <project path="toolchain/pgo-profiles" name="toolchain/pgo-profiles" groups="pdk"  />
+  <project path="toolchain/pgo-profiles" name="toolchain/pgo-profiles" groups="pdk" />
   <project path="tools/aadevtools" name="platform/tools/aadevtools" groups="pdk" />
   <project path="tools/acloud" name="platform/tools/acloud" groups="tools,vts,projectarch,pdk,tradefed" />
   <project path="tools/apifinder" name="platform/tools/apifinder" groups="pdk,tools" />
@@ -1321,8 +1315,8 @@
   <project path="tools/test/mobly_snippets" name="platform/tools/test/mobly_snippets" groups="pdk" />
   <project path="tools/test/openhst" name="platform/tools/test/openhst" groups="tools" />
   <project path="tools/tradefederation/core" name="platform/tools/tradefederation" groups="pdk,tradefed" />
-  <project path="tools/tradefederation/contrib" name="platform/tools/tradefederations/contrib" groups="pdk,tradefed" />
-  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederations/prebuilts" groups="pdk,tradefed" clone-depth="1" />
+  <project path="tools/tradefederation/contrib" name="platform/tools/tradefederation/contrib" groups="pdk,tradefed" />
+  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederation/prebuilts" groups="pdk,tradefed" clone-depth="1" />
   <project path="tools/treble" name="platform/tools/treble" groups="tools,pdk" />
   <project path="tools/trebuchet" name="platform/tools/trebuchet" groups="tools,cts,pdk,pdk-cw-fs,pdk-fs" />
   <project path="trusty/user/app/avb" name="trusty/app/avb" groups="trusty" />
@@ -1351,7 +1345,7 @@
   <project path="external/trusty/lk" name="trusty/lk/common" groups="trusty" />
   <project path="trusty/hardware/nxp" name="trusty/lk/nxp" groups="trusty" />
   <project path="trusty/kernel" name="trusty/lk/trusty" groups="trusty" />
-  <project path="trusty/vendor/google/aosp" name="trusty/vendor/google/aosp" groups="trusty" >
+  <project path="trusty/vendor/google/aosp" name="trusty/vendor/google/aosp" groups="trusty">
     <copyfile src="lk_inc.mk" dest="lk_inc.mk" />
   </project>
 </manifest>
