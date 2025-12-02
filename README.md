@@ -55,7 +55,7 @@ $ cd cix-android14
 Then run:
 
 ```shell
-$ ~/bin/repo init -u https://github.com/radxa/cix-android-manifests.git -b cix_radxa_o6_rc2 -m cix_radxa_o6_release.xml
+$ ~/bin/repo init -u https://github.com/radxa/cix-android-manifests.git -b cix_radxa_o6_rc3.4 -m cix_radxa_o6_r3.4_release.xml
 $ repo sync -j$(nproc)
 $ repo forall -c 'git lfs pull'
 ```
@@ -72,33 +72,25 @@ $ export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo/'
 You can switch AOSP downloads to the Tsinghua University mirror for faster sync:
 ```bash
 $ cd .repo/manifests
-$ git diff cix_radxa_o6_release.xml
-diff --git a/cix_radxa_o6_release.xml b/cix_radxa_o6_release.xml
-index 76eb64b..890d610 100644
---- a/cix_radxa_o6_release.xml
-+++ b/cix_radxa_o6_release.xml
-@@ -10,14 +10,14 @@
+diff --git a/cix_radxa_o6_r3.4_release.xml b/cix_radxa_o6_r3.4_release.xml
+index 212f513..1450543 100644
+--- a/cix_radxa_o6_r3.4_release.xml
++++ b/cix_radxa_o6_r3.4_release.xml
+@@ -10,8 +10,8 @@
    <remote name="cix_open" fetch="https://gitlab.com/cix-android14" rreview=""/>
    <remote name="linux_repo" fetch="https://gitlab.com/cix-android14" rreview=""/>
    <remote name="cix_android" fetch="https://gitlab.com/cix-android14" review=""/>
 -  <include name="aosp-default.xml" />
--  <!-- <include name="aosp-radxa-default.xml" />
+-  <!-- <include name="aosp-radxa-default.xml" /> -->
 +  <!-- <include name="aosp-default.xml" /> -->
 +  <include name="aosp-radxa-default.xml" />
-   <remove-project name="device/google/felix"/>
-   <remove-project name="platform/tools/tradefederations/contrib"/>
-   <remove-project name="platform/tools/tradefederations/prebuilts"/>
-   <project path="device/google/felix" name="device/google/felix" remote="cix_android" groups="device,felix" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
-   <project path="tools/tradefederation/contrib" name="platform/tools/tradefederations/contrib" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6"/>
--  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederations/prebuilts" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6" clone-depth="1" /> -->
-+  <project path="tools/tradefederation/prebuilts" name="platform/tools/tradefederations/prebuilts" remote="cix_android" groups="pdk,tradefed" revision="cix-radxa-o6" upstream="cix-radxa-o6" clone-depth="1" />
  
-   <project path="bootable/recovery" name="platform/bootable/recovery" remote="cix_android" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="5880e9e924fbae9e1b55ff8747537ebb64323d87" />
-   <project path="build-scripts" name="cix_build_scripts" remote="linux_repo" groups="cix" revision="cix-radxa-o6" upstream="cix-radxa-o6" base="">
+   <project path="bootable/recovery" name="platform/bootable/recovery" remote="cix_android" groups="cix" revision="cix-radxa-o6-rc3.4" upstream="cix-radxa-o6-rc3.4" base="5880e9e924fbae9e1b55ff8747537ebb64323d87" />
+   <project path="build-scripts" name="cix_build_scripts" remote="linux_repo" groups="cix" revision="cix-radxa-o6-rc3.4" upstream="cix-radxa-o6-rc3.4" base="">
 ```
 Then run:
 ```shell
-$ ~/bin/repo init -u https://github.com/radxa/cix-android-manifests.git -b cix_radxa_o6_rc2 -m cix_radxa_o6_release.xml
+$ ~/bin/repo init -u https://github.com/radxa/cix-android-manifests.git -b cix_radxa_o6_rc3.4 -m cix_radxa_o6_r3.4_release.xml
 $ repo sync -j$(nproc)
 $ repo forall -c 'git lfs pull'
 ```
@@ -129,6 +121,7 @@ images/
 ├── super.img
 ├── vbmeta-sky1.img
 └── vendor_boot.img
+└── android.sdcard
 ```
 
 ## Burn image
@@ -145,7 +138,8 @@ https://developer.android.google.cn/tools/releases/platform-tools
 Refer to the Radxa documentation: https://docs.radxa.com/en/orion/o6/bios/install-bios
 Use the compiled file: "cix_flash_all.bin".
 
-### Fastboot flash bootloader
+## Two methods to burn the image to an SSD
+### 1. Fastboot flash bootloader
 
 Use a jumper cap to short the FAST BOOT HDR jumper pin, press the RESET BTN button to enter fastboot mode.
 
@@ -160,7 +154,9 @@ Enter the `images` directory and execute the script `android_flush_images.sh`:
 ```shell
 ./android_flush_images.sh
 ```
-
-
-
+### 2. Linux uses the dd command.
+```bash
+dd if=android.sdcard of=/dev/sda conv=notrunc,fsync bs=1M status=progress
+```
+### Windows users can use the balenaEtcher tool to burn the image.
 
